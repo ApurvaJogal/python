@@ -7,21 +7,32 @@
 
 from threading import *
 
-def forwardFifty():
-	for i in range(1,50):
-		print("forwardFifty",i);
-		
+def funCaller(function, lock):
+	function(lock);
 
-def reverseFifty():
-	for i in reversed(range(1,50)):
+def forwardFifty(lock):
+
+	lock.acquire()
+	for i in range(1,51):
+		print("forwardFifty",i);
+	lock.release();
+
+def reverseFifty(lock):
+
+	lock.acquire()
+	for i in reversed(range(1,51)):
 		print("reverseFifty",i);
+	lock.release();
 
 
 def main():
 	
+	#creating a lock
 	
-	thread1 = Thread(target=forwardFifty);
-	thread2 = Thread(target=reverseFifty);
+	lock = Lock();
+	
+	thread1 = Thread(target=funCaller, args=(forwardFifty,lock,));
+	thread2 = Thread(target=funCaller, args=(reverseFifty,lock,));
 	
 	# Will execute both in parallel
 	thread1.start();
@@ -35,4 +46,3 @@ def main():
 	
 if __name__ == "__main__":
 	main();
-
