@@ -1,0 +1,6 @@
+Dupliate found
+Following files are Identical:
+		/home/dell/Desktop/python assignment/Assignment11/Demo/Demo_1 (another copy).java
+		/home/dell/Desktop/python assignment/Assignment11/Demo/Demo_1.txt
+		/home/dell/Desktop/python assignment/Assignment11/Demo/Demo_1.java
+		/home/dell/Desktop/python assignment/Assignment11/Demo/Demo_1 (copy).java
